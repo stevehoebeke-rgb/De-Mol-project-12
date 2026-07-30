@@ -11,7 +11,6 @@
             theme: { extend: { colors: { molDark: '#0b131f', molCard: '#131f33', molAccent: '#00f2fe', molGreen: '#10b981', molRed: '#ef4444' } } }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-molDark text-slate-100 min-h-screen font-sans">
 
@@ -19,12 +18,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <span class="text-xl font-black bg-gradient-to-r from-molAccent to-teal-400 bg-clip-text text-transparent">DE MOL PROJECT 12</span>
-                <div class="hidden md:flex space-x-6 text-sm">
+                <div class="flex space-x-6 text-sm">
                     <button onclick="switchTab('dashboard')" class="text-molAccent">Dashboard</button>
-                    <button onclick="switchTab('opdracht')" class="text-slate-400 hover:text-molAccent">Opdracht</button>
-                    <button onclick="switchTab('kandidaten')" class="text-slate-400 hover:text-molAccent">Kandidaten</button>
+                    <button onclick="switchTab('opdracht')" class="hover:text-molAccent">Opdracht</button>
+                    <button onclick="switchTab('kandidaten')" class="hover:text-molAccent">Kandidaten</button>
                 </div>
-                <div class="bg-slate-900 px-3 py-1 rounded-lg border border-slate-700 text-amber-400 font-bold" id="pot-display">€ 0,-</div>
+                <div class="bg-slate-900 px-3 py-1 rounded-lg border border-slate-700 text-amber-400 font-bold" id="pot-display">€ 2,50</div>
             </div>
         </div>
     </nav>
@@ -38,21 +37,19 @@
 
         <section id="tab-opdracht" class="tab-content hidden">
             <h2 class="text-2xl font-bold mb-6">Instructievideo</h2>
-            <video class="w-full max-w-2xl aspect-video rounded-xl border border-slate-700" controls>
-                <!-- Vervang de src hieronder door de link naar jouw geüploade video -->
-                <source src="JOUW_VIDEO_URL_HIER.mp4" type="video/mp4">
-            </video>
+            <div class="aspect-video w-full max-w-2xl">
+                <iframe class="w-full h-full rounded-xl border border-slate-700" src="https://www.youtube.com/embed/2NrbyqxjaeM" allowfullscreen></iframe>
+            </div>
         </section>
 
         <section id="tab-kandidaten" class="tab-content hidden">
             <h2 class="text-2xl font-bold mb-6">Kandidaten</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <!-- 5 Video placeholders -->
-                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><video class="w-full rounded" controls><source src="KANDIDAAT1.mp4"></video><p class="mt-2 text-center">Juul</p></div>
-                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><video class="w-full rounded" controls><source src="KANDIDAAT2.mp4"></video><p class="mt-2 text-center">Stefan</p></div>
-                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><video class="w-full rounded" controls><source src="KANDIDAAT3.mp4"></video><p class="mt-2 text-center">Ine</p></div>
-                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><video class="w-full rounded" controls><source src="KANDIDAAT4.mp4"></video><p class="mt-2 text-center">Kandidaat 4</p></div>
-                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><video class="w-full rounded" controls><source src="KANDIDAAT5.mp4"></video><p class="mt-2 text-center">Kandidaat 5</p></div>
+                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><div class="aspect-video"><iframe class="w-full h-full rounded" src="https://www.youtube.com/embed/KANDIDAAT1_ID"></iframe></div><p class="mt-2 text-center">Kandidaat 1</p></div>
+                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><div class="aspect-video"><iframe class="w-full h-full rounded" src="https://www.youtube.com/embed/KANDIDAAT2_ID"></iframe></div><p class="mt-2 text-center">Kandidaat 2</p></div>
+                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><div class="aspect-video"><iframe class="w-full h-full rounded" src="https://www.youtube.com/embed/KANDIDAAT3_ID"></iframe></div><p class="mt-2 text-center">Kandidaat 3</p></div>
+                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><div class="aspect-video"><iframe class="w-full h-full rounded" src="https://www.youtube.com/embed/KANDIDAAT4_ID"></iframe></div><p class="mt-2 text-center">Kandidaat 4</p></div>
+                <div class="bg-molCard p-4 rounded-xl border border-slate-800"><div class="aspect-video"><iframe class="w-full h-full rounded" src="https://www.youtube.com/embed/KANDIDAAT5_ID"></iframe></div><p class="mt-2 text-center">Kandidaat 5</p></div>
             </div>
         </section>
     </main>
@@ -62,9 +59,6 @@
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.getElementById('tab-' + tabId).classList.remove('hidden');
         }
-        // Logic for pot: 2.5 of 5
-        let pot = 2.5;
-        document.getElementById('pot-display').innerText = `€ ${pot},-`;
     </script>
 </body>
 </html>
